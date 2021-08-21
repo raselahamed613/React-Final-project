@@ -24,13 +24,13 @@ function App() {
     <Route exact path="/product" component={Product} />
     <Route exact path="/productdetails" component={ProductDetails} />
     <Route path="/login" component={Login} />
-     <Route path="/registation" component={Registation} />
-     <Route path="/dashboard" component={Dashboard} />
-     <Route path="/campaigns" component={Campaigns} />
-     <Route path="/cart" component={Cart} />
-     <Route path="/checkout" component={Checkout} />
-     <Route path="/about" component={About} />
-     <Route path="/contact" component={Contact} />
+    <Route path="/registation" component={Registation} />
+    <Route path="/dashboard" component={Dashboard} />
+    <Route path="/campaigns" component={Campaigns} />
+    <Route path="/cart" component={Cart} />
+    <Route path="/checkout" component={Checkout} />
+    <Route path="/about" component={About} />
+    <Route path="/contact" component={Contact} />
     </div>
      
     </Router>

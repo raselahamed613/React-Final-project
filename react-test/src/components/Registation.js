@@ -1,7 +1,6 @@
-
-  import axios from 'axios';
 import React, {Component} from 'react';
-  import {Link} from 'react-router-dom';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 
   class Registation extends Component
 {
@@ -15,18 +14,20 @@ import React, {Component} from 'react';
     }
 
     handleInput = (e) => {
+     // alert ("123");
           this.setState({
-            [e.target.user_name]: e.target.value
+            [e.target.name]: e.target.value
           });
     }
 
     saveCustomer = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post('http://localhost:8000/api/registation', this.state);
+        alert ("Are you Submit Form");
+        const res = await axios.post('http://localhost/React%20Final%20project/ERP-web-application/public/api/registation', this.state);
         if(res.data.status === 200)
         {
-            console.log(res.data.message);
+            alert(res.data.message);
             this.setState({
               user_name: '',
               user_address: '',
@@ -39,10 +40,9 @@ import React, {Component} from 'react';
         }
     }
   
-   Registation() {
+   render() {
     return (
       <div>
-        {/* molla/login.html  22 Nov 2019 10:04:03 GMT */}
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -242,31 +242,31 @@ import React, {Component} from 'react';
                         </div>{/* End .form-choice */}
                       </div>{/* .End .tab-pane */}
                       <div className="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                        <form onSubmit={this.saveStudent} >
+                        <form onSubmit={this.saveCustomer} >
                          
                           <div className="form-group">
                             <label htmlFor="register-email-2">Type Your Full Name *</label>
-                            <input type="text" className="form-control" id="register-email-2" name="user_name" onChange={this.handleInput} value={this.state.user_name} />
+                            <input type="text" className="form-control"  name="user_name" onChange={this.handleInput} value={this.state.user_name} />
                             
                           </div>{/* Customer Name*/}
                           <div className="form-group">
                             <label htmlFor="register-email-2">Type Your Address *</label>
-                            <input type="text" className="form-control" id="register-email-2" name="user_address" onChange={this.handleInput} value={this.state.user_address} />
+                            <input type="text" className="form-control"  name="user_address" onChange={this.handleInput} value={this.state.user_address} />
                            
                           </div>{/* End .form-group */}
                           <div className="form-group">
                             <label htmlFor="register-email-2">Birthday:</label>
-                            <input type="date" className="form-control" id="birthday" name="user_dob" onChange={this.handleInput} value={this.state.user_dob} />
+                            <input type="date" className="form-control"  name="user_dob" onChange={this.handleInput} value={this.state.user_dob} />
                            
                           </div>{/* End .dob */}
                           <div className="form-group">
                             <label htmlFor="register-email-2">Type Your Mobile Number *</label>
-                            <input type="text" className="form-control" id="register-email-2" name="user_mob" onChange={this.handleInput} value={this.state.user_mob} />
+                            <input type="text" className="form-control"  name="user_mob" onChange={this.handleInput} value={this.state.user_mob} />
                            
                           </div>{/* End .form-group */}
                           <div className="form-group">
                             <label htmlFor="register-email-2">Type Your E-mail Address *</label>
-                            <input type="email" className="form-control" id="register-email-2" name="user_email" onChange={this.handleInput} value={this.state.user_email} required />
+                            <input type="email" className="form-control"  name="user_email" onChange={this.handleInput} value={this.state.user_email} required />
                            
                           </div>{/* End .form-group */}
                           <div className="form-group">
@@ -377,155 +377,7 @@ import React, {Component} from 'react';
           </footer>{/* End .footer */}
         </div>{/* End .page-wrapper */}
         <button id="scroll-top" title="Back to Top"><i className="icon-arrow-up" /></button>
-        {/* Mobile Menu */}
-        <div className="mobile-menu-overlay" />{/* End .mobil-menu-overlay */}
-        <div className="mobile-menu-container">
-          <div className="mobile-menu-wrapper">
-            <span className="mobile-menu-close"><i className="icon-close" /></span>
-            <form action="#" method="get" className="mobile-search">
-              <label htmlFor="mobile-search" className="sr-only">Search</label>
-              <input type="search" className="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required />
-              <button className="btn btn-primary" type="submit"><i className="icon-search" /></button>
-            </form>
-            <nav className="mobile-nav">
-              <ul className="mobile-menu">
-                <li className="active">
-                  <a href="/">Home</a>                      
-                </li>
-                <li>
-                  <a href="category.html">Shop</a>
-                  <ul>                        
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="product.html" className="sf-with-ul">Product</a>
-                </li>
-                <li>
-                  <a href="about.html">About</a>
-                </li>
-                <li>
-                  <a href="contact.html">Contact</a>
-                </li>
-              </ul>
-            </nav>{/* End .mobile-nav */}
-            <div className="social-icons">
-              <a href="#" className="social-icon" target="_blank" title="Facebook"><i className="icon-facebook-f" /></a>
-              <a href="#" className="social-icon" target="_blank" title="Twitter"><i className="icon-twitter" /></a>
-              <a href="#" className="social-icon" target="_blank" title="Instagram"><i className="icon-instagram" /></a>
-              <a href="#" className="social-icon" target="_blank" title="Youtube"><i className="icon-youtube" /></a>
-            </div>{/* End .social-icons */}
-          </div>{/* End .mobile-menu-wrapper */}
-        </div>{/* End .mobile-menu-container */}
-        {/* Sign in / Register Modal */}
-        <div className="modal fade" id="signin-modal" tabIndex={-1} role="dialog" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-body">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true"><i className="icon-close" /></span>
-                </button>
-                <div className="form-box">
-                  <div className="form-tab">
-                    <ul className="nav nav-pills nav-fill" role="tablist">
-                      <li className="nav-item">
-                        <a className="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
-                      </li>
-                    </ul>
-                    <div className="tab-content" id="tab-content-5">
-                      <div className="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                        <form action="#">
-                          <div className="form-group">
-                            <label htmlFor="singin-email">Username or email address *</label>
-                            <input type="text" className="form-control" id="singin-email" name="singin-email" required />
-                          </div>{/* End .form-group */}
-                          <div className="form-group">
-                            <label htmlFor="singin-password">Password *</label>
-                            <input type="password" className="form-control" id="singin-password" name="singin-password" required />
-                          </div>{/* End .form-group */}
-                          <div className="form-footer">
-                            <button type="submit" className="btn btn-outline-primary-2">
-                              <span>LOG IN</span>
-                              <i className="icon-long-arrow-right" />
-                            </button>
-                            <div className="custom-control custom-checkbox">
-                              <input type="checkbox" className="custom-control-input" id="signin-remember" />
-                              <label className="custom-control-label" htmlFor="signin-remember">Remember Me</label>
-                            </div>{/* End .custom-checkbox */}
-                            <a href="#" className="forgot-link">Forgot Your Password?</a>
-                          </div>{/* End .form-footer */}
-                        </form>
-                        <div className="form-choice">
-                          <p className="text-center">or sign in with</p>
-                          <div className="row">
-                            <div className="col-sm-6">
-                              <a href="#" className="btn btn-login btn-g">
-                                <i className="icon-google" />
-                                Login With Google
-                              </a>
-                            </div>{/* End .col-6 */}
-                            <div className="col-sm-6">
-                              <a href="#" className="btn btn-login btn-f">
-                                <i className="icon-facebook-f" />
-                                Login With Facebook
-                              </a>
-                            </div>{/* End .col-6 */}
-                          </div>{/* End .row */}
-                        </div>{/* End .form-choice */}
-                      </div>{/* .End .tab-pane */}
-                      <div className="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                        <form action="#">
-                          <div className="form-group">
-                            <label htmlFor="register-email">Your email address *</label>
-                            <input type="email" className="form-control" id="register-email" name="register-email" required />
-                          </div>{/* End .form-group */}
-                          <div className="form-group">
-                            <label htmlFor="register-password">Password *</label>
-                            <input type="password" className="form-control" id="register-password" name="register-password" required />
-                          </div>{/* End .form-group */}
-                          <div className="form-footer">
-                            <button type="submit" className="btn btn-outline-primary-2">
-                              <span>SIGN UP</span>
-                              <i className="icon-long-arrow-right" />
-                            </button>
-                            <div className="custom-control custom-checkbox">
-                              <input type="checkbox" className="custom-control-input" id="register-policy" required />
-                              <label className="custom-control-label" htmlFor="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
-                            </div>{/* End .custom-checkbox */}
-                          </div>{/* End .form-footer */}
-                        </form>
-                        <div className="form-choice">
-                          <p className="text-center">or sign in with</p>
-                          <div className="row">
-                            <div className="col-sm-6">
-                              <a href="#" className="btn btn-login btn-g">
-                                <i className="icon-google" />
-                                Login With Google
-                              </a>
-                            </div>{/* End .col-6 */}
-                            <div className="col-sm-6">
-                              <a href="#" className="btn btn-login  btn-f">
-                                <i className="icon-facebook-f" />
-                                Login With Facebook
-                              </a>
-                            </div>{/* End .col-6 */}
-                          </div>{/* End .row */}
-                        </div>{/* End .form-choice */}
-                      </div>{/* .End .tab-pane */}
-                    </div>{/* End .tab-content */}
-                  </div>{/* End .form-tab */}
-                </div>{/* End .form-box */}
-              </div>{/* End .modal-body */}
-            </div>{/* End .modal-content */}
-          </div>{/* End .modal-dialog */}
-        </div>{/* End .modal */}
-        {/* Plugins JS File */}
-        {/* Main JS File */}
-        {/* molla/login.html  22 Nov 2019 10:04:03 GMT */}
+
       </div>
     );
   }
